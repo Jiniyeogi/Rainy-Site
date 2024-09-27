@@ -15,17 +15,67 @@
             margin: 0;
             font-family: Arial, sans-serif;
         }
-        button {
-            padding: 15px 15px;
-            font-size: 20px;
+
+        #center_block {
+            width: 100%;
+            overflow: visible;
+            text-align: center;
+        }
+
+        #play_pause_btn {
+            height: 130px;
+            width: 130px;
+            border: none;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            outline: none;
+        }
+
+        .play {
+            background: url('play image.png');
+            border-radius: 50%;
+            animation: animate 5s linear infinite;
             cursor: pointer;
         }
         
+        #volume_control {
+            margin: auto;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            width: 50%;
+        }
+    
+        @keyframes animate {
+            0% { 
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.15);
+            }
+            40% {
+                box-shadow: 0 0 0 100px rgba(255, 255, 255, 0);
+            }
+            80% {
+                box-shadow: 0 0 0 100px rgba(255, 255, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0  rgba(255, 255, 255, 0);
+            }
+
+        }
     </style>
 </head>
 <body>
-    <!-- play or pause 버튼 -->
-    <div><button id="play_pause_btn">Play</button>
+    <div id="center_block">
+        <!-- play or pause 버튼 -->
+        <div>
+            <button id="play_pause_btn" class="play"></button>
+        </div>
+
+        <!-- 볼륨 조절 -->
+        <div id="volume_control">
+            <input type="range" id="volume_slider" min="0" max="1" step="0.1" value="0.5">
+        </div>
     </div>
 
     <!-- 빗소리 -->
@@ -33,10 +83,7 @@
         <source src="rain-sound.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- 볼륨 조절 -->
-    <div id="volume_control">
-        <input type="range" id="volume_slider" min="0" max="1" step="0.1" value="0.5">
-    </div>
+    
 
     <script>
         const play_pause_btn = document.getElementById('play_pause_btn');
@@ -46,10 +93,8 @@
         play_pause_btn.addEventListener('click',() =>{
             if(rain_audio.paused) {
                 rain_audio.play();
-                play_pause_btn.textContent = 'Pause';
             } else {
                 rain_audio.pause();
-                play_pause_btn.textContent = 'play';
             }
         });
 
