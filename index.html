@@ -8,18 +8,27 @@
         body {
             background: url('rainy-background.jpg') no-repeat center center fixed;
             background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'marcellus_scregular', serif;
+            color: #fff;
         }
 
-        #center_block {
+        .center_container {
             width: 100%;
             overflow: visible;
             text-align: center;
+
+        }
+
+        #center_block {
+            max-width: 98%;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         #play_pause_btn {
@@ -45,7 +54,6 @@
             margin-bottom: 0px;
             padding-top: 0px;
             padding-bottom: 0px;
-            width: 50%;
         }
     
         @keyframes animate {
@@ -63,18 +71,33 @@
             }
 
         }
+
+        h1 {
+            text-shadow: 0px 0px 15px rgba(0, 0, 0, 55);
+            line-height: 80px;
+            margin: 0;
+            cursor: default;
+            font-size: 45px;
+            line-height: 45px;
+        }
     </style>
 </head>
 <body>
-    <div id="center_block">
-        <!-- play or pause 버튼 -->
-        <div>
-            <button id="play_pause_btn" class="play"></button>
-        </div>
+    <div class="center_container">
+        <div id="center_block">
+            <!-- play or pause 버튼 -->
+            <div>
+                <button id="play_pause_btn" class="play"></button>
+            </div>
 
-        <!-- 볼륨 조절 -->
-        <div id="volume_control">
-            <input type="range" id="volume_slider" min="0" max="1" step="0.1" value="0.5">
+            <!-- 볼륨 조절 -->
+            <div id="volume_control">
+                <input type="range" id="volume_slider" min="0" max="1" step="0.1" value="0.5">
+            </div>
+
+            <h1>
+                Rainy Mood
+            </h1>
         </div>
     </div>
 
